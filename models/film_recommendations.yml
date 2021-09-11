@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  name: film_recommendations
+  description: >
+    Table that creates 10 film recommendations for each customer.
+    Based on their favourite categories and actors, or word matches to other films. 
+  meta:
+    owner: "@andrew"
+  tests: 
+    - dbt_expectations.expect_table_columns_to_match_set:
+        - customer_id
+        - recommendations
+  columns: 
+    - name: customer_id
+      description: > 
+        The id of the customer
+      tests:
+        - not_null
+        - unique
+    - name: recommendations
+      description: >
+        The top 10 film recommendations as a JSON object. 
+      tests: 
+        - not_null
+        
