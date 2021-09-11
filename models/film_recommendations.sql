@@ -79,7 +79,7 @@ match_films as (
     case when category_id = top_category then 1 else 0 end as category_match,
     case when top_actor = any(actors_in_film) then 1 else 0 end as actor_match,
     case when matched_film_id is not null then 1 else 0 end as keyword_match,
-    case when film_overall_performance < 11 then 1 else 0 end as top_ten_overall_match -- possible take out if too generic?
+    case when film_overall_performance < 11 then 1 else 0 end as top_ten_overall_match -- possibly take out if too generic?
   from films_matrix
 ),
 

@@ -4,7 +4,7 @@
     alias='customer_base_information'
 }}
 
--- find all films that a customer has watched
+-- find all films that a customer has rented
 select
     c.customer_id,
     r.rental_id,
